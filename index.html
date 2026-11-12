@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivam Prajapati | Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+    --bg: #080b14;
+    --card: #111725;
+    --text: #f5f7ff;
+    --muted: #9ba6ba;
+    --primary: #8b5cf6;
+    --secondary: #38bdf8;
+    --border: rgba(255,255,255,.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 88%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(8,11,20,.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: var(--primary);
+    filter: blur(180px);
+    opacity: .22;
+    border-radius: 50%;
+    right: 5%;
+    top: 15%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    padding-top: 60px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 9px 16px;
+    background: rgba(139,92,246,.12);
+    color: #c4b5fd;
+    border: 1px solid rgba(139,92,246,.3);
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 75px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #a78bfa, #38bdf8);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.9;
+    margin: 25px 0 32px;
+    max-width: 600px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 23px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #8b5cf6, #6366f1);
+    color: white;
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(139,92,246,.2);
+}
+
+/* SOCIALS */
+
+.socials {
+    display: flex;
+    gap: 22px;
+    margin-top: 40px;
+}
+
+.socials a {
+    color: var(--muted);
+    font-size: 21px;
+    transition: .3s;
+}
+
+.socials a:hover {
+    color: var(--secondary);
+    transform: translateY(-4px);
+}
+
+/* SECTIONS */
+
+section {
+    padding: 100px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading small {
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    margin-top: 12px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-box {
+    background: var(--card);
+    padding: 35px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.about-box h3 {
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+.about-box p {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+}
+
+.stat h3 {
+    font-size: 30px;
+    color: #a78bfa;
+}
+
+.stat p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+}
+
+.skill {
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: .3s;
+}
+
+.skill:hover {
+    border-color: var(--primary);
+    transform: translateY(-6px);
+}
+
+.skill i {
+    font-size: 27px;
+    color: #a78bfa;
+    margin-bottom: 15px;
+}
+
+.skill h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.skill p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+}
+
+.project {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 30px;
+    transition: .3s;
+}
+
+.project:hover {
+    transform: translateY(-7px);
+    border-color: var(--primary);
+}
+
+.project-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(139,92,246,.15);
+    display: grid;
+    place-items: center;
+    color: #a78bfa;
+    font-size: 22px;
+    margin-bottom: 22px;
+}
+
+.project h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.project p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.tech {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.tech span {
+    padding: 7px 11px;
+    background: rgba(255,255,255,.06);
+    border-radius: 6px;
+    color: #c4b5fd;
+    font-size: 11px;
+}
+
+.project-link {
+    color: var(--secondary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* CONTACT */
+
+.contact-box {
+    text-align: center;
+    background: linear-gradient(135deg,rgba(139,92,246,.16),rgba(56,189,248,.08));
+    border: 1px solid var(--border);
+    padding: 65px 25px;
+    border-radius: 22px;
+}
+
+.contact-box h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin-bottom: 28px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: .7s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 800px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: #111725;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width: 550px) {
+    .container {
+        width: 90%;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .contact-box h2 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="container">
+        <a href="#" class="logo">Shivam<span>.</span></a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="menu-btn" id="menuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="glow"></div>
+
+    <div class="container">
+        <div class="hero-content">
+            <span class="tag">
+                <i class="fas fa-circle" style="font-size:8px"></i>
+                Java Developer | Software Engineer
+            </span>
+
+            <h1>
+                Building Digital<br>
+                Experiences That<br>
+                <span class="gradient">Make An Impact.</span>
+            </h1>
+
+            <p>
+                Hi, I'm Shivam Prajapati. A passionate software developer
+                focused on Java, Spring Boot, backend engineering and
+                building modern web applications.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn btn-primary">
+                    Explore My Work <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Let's Connect
+                </a>
+            </div>
+
+            <div class="socials">
+                <a href="https://github.com/shivam8868" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://linkedin.com/in/shivamprajapati777" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+                <a href="mailto:your-email@example.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="container">
+        <div class="section-heading reveal">
+            <small>Get To Know Me</small>
+            <h2>About Me</h2>
+            <p>A little introduction about my journey.</p>
+        </div>
+
+        <div class="about-grid reveal">
+            <div class="about-box">
+                <h3>Turning Ideas Into Reality.</h3>
+                <p>
+                    I'm a Computer Science Engineering student with a
+                    strong interest in software development.
+
+                    I enjoy solving problems, learning new technologies
+                    and developing applications that solve real-world
+                    problems.
+
+                    My primary focus is Java backend development,
+                    Spring Boot, REST APIs, database management and
+                    full-stack application development.
+                </p>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <h3>Java</h3>
+                    <p>Primary Language</p>
+                </div>
+
+                <div class="stat">
+                    <h3>Spring</h3>
+                    <p>Backend Framework</p>
+                </div>
+
+                <div class="stat">
+                    <h3>2027</h3>
+                    <p>Graduation Year</p>
+                </div>
+
+                <div class="stat">
+                    <h3>Full Stack</h3>
+                    <p>Development Interest</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+    <div class="container">
+        <div class="section-heading reveal">
+            <small>My Expertise</small>
+            <h2>Technologies I Work With</h2>
+            <p>Tools and technologies I use to build applications.</p>
+        </div>
+
+        <div class="skills-grid reveal">
+
+            <div class="skill">
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+                <p>OOP, Collections, Multithreading, Java 8+</p>
+            </div>
+
+            <div class="skill">
+                <i class="fas fa-leaf"></i>
+                <h3>Spring Boot</h3>
+                <p>Spring MVC, Security, JPA, REST APIs</p>
+            </div>
+
+            <div class="skill">
+                <i class="fas fa-database"></i>
+                <h3>Database</h3>
+                <p>MySQL, MongoDB, Redis</p>
+            </div>
+
+            <div class="skill">
+                <i class="fab fa-react"></i>
+                <h3>React</h3>
+                <p>Components, Hooks, Redux</p>
+            </div>
+
+            <div class="skill">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+                <p>ES6+, DOM, API Integration</p>
+            </div>
+
+            <div class="skill">
+                <i class="fab fa-html5"></i>
+                <h3>Frontend</h3>
+                <p>HTML, CSS, Bootstrap, Tailwind</p>
+            </div>
+
+            <div class="skill">
+                <i class="fab fa-git-alt"></i>
+                <h3>Git & GitHub</h3>
+                <p>Version Control, Collaboration</p>
+            </div>
+
+            <div class="skill">
+                <i class="fas fa-code"></i>
+                <h3>Tools</h3>
+                <p>Postman, Docker, VS Code</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+    <div class="container">
+        <div class="section-heading reveal">
+            <small>My Portfolio</small>
+            <h2>Featured Projects</h2>
+            <p>Some applications I've worked on.</p>
+        </div>
+
+        <div class="projects-grid reveal">
+
+            <div class="project">
+                <div class="project-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+
+                <h3>CryptoSense</h3>
+
+                <p>
+                    A smart cryptocurrency trading platform featuring
+                    wallet management, live market data, trading,
+                    transaction history and AI-powered chatbot.
+                </p>
+
+                <div class="tech">
+                    <span>Spring Boot</span>
+                    <span>React</span>
+                    <span>MySQL</span>
+                    <span>JWT</span>
+                </div>
+
+                <a href="https://github.com/shivam8868"
+                   target="_blank" class="project-link">
+                    View on GitHub <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+
+                <h3>Employee Management System</h3>
+
+                <p>
+                    A web application to manage employee information
+                    with CRUD operations, structured backend
+                    architecture and database integration.
+                </p>
+
+                <div class="tech">
+                    <span>Java</span>
+                    <span>Spring Boot</span>
+                    <span>Thymeleaf</span>
+                    <span>MySQL</span>
+                </div>
+
+                <a href="https://github.com/shivam8868"
+                   target="_blank" class="project-link">
+                    View on GitHub <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+    <div class="container">
+        <div class="contact-box reveal">
+            <h2>Let's Build Something <span class="gradient">Amazing.</span></h2>
+
+            <p>
+                Have an opportunity or an interesting project?
+                Let's connect and make it happen.
+            </p>
+
+            <a href="mailto:your-email@example.com"
+               class="btn btn-primary">
+                Get In Touch <i class="fas fa-paper-plane"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Shivam Prajapati. Designed & Built with ❤️</p>
+    </div>
+</footer>
+
+<script>
+
+// Mobile navigation
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+    });
+});
+
+// Scroll reveal animation
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+</script>
+
+</body>
+</html>
